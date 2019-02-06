@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise</title>
+
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<section class="profile">
+    <h1>Добавить продукт</h1>
+
+    <form action="#" id="profile" class="form">
+        <p class="form__success-msg">Товар добавлен в корзину</p>
+        <p class="form__error-msg">Неверно введено название товара!</p>
+        <p class="form__error-msg-price">Неверно введена цена товара!</p>
+        <p class="form__error-msg-discount">Неверно введена скидка!</p>
+
+
+        <label for="Product" >Продукт *</label>
+        <input
+                name="name"
+                id="profile-Product"                data-validator="letters"
+                placeholder= 'Название'
+        />
+        <span class="form__comment">Только буквы</span>
+
+        <label for="price">Цена (указывать скидочную цену)</label>
+        <input
+                name="price"
+                id="profile-Price"
+                data-validator="number"
+                placeholder='руб.'
+        />
+        <span class="form__comment">Только цифры</span>
+
+        <button class="add">Добавить</button>
+
+        <hr>
+
+        <h1>Корзина</h1>
+
+        <table class="simple-little-table" cellspacing='0'>
+    <tr>
+        <th>Продукт</th>
+        <th>Цена</th>
+        <th>Цена со скидкой</th>
+    </tr><!-- Table Header -->
+
+    <tr>
+        <td class='ProductionName'>Телефон</td>
+        <td class='OldPrice'>100</td>
+        <td class='NewPrice'>100</td>
+    </tr><!-- Table Row -->
+
+    <tr>
+        <td class='ProductionName'>Магнитофон</td>
+        <td class='OldPrice'>200</td>
+        <td class='NewPrice'>200</td>
+    </tr><!-- Darker Table Row-->
+ 
+    <tr>
+        <td class='ProductionName'>Миелофон</td>
+        <td class='OldPrice'>400</td>
+        <td class='NewPrice'>400</td>
+    </tr>
+</table>
+
+        <label for="discount">Применить скидку:</label>
+        <input
+                name="discount"
+                id="profile-Discount"
+                data-validator="number"
+                data-validator-min="0"
+                placeholder="руб."
+        />
+        <span class="form__comment">Только цифры</span>
+        <button  class='reduce'>Применить</button>
+    </form>
+</section>
+
+<script src="./script.js"></script>
+<script>
+    // Вызов валидатора формы
+    validateForm({
+        formId: 'profile',
+        formValidClass: 'form_valid',
+        formInvalidClass: 'form_invalid',
+        formInvalidClassDiscount: 'form_invalid-discount',
+        inputErrorClass: 'input_error',
+        formInvalidClassPrice: 'form_invalid-price',
+        ClassOldPrice: 'OldPrice',
+        ClassNewPrice: 'NewPrice',
+        ClassProductionName: 'ProductionName'
+    });
+</script>
+
+</body>
+</html>
